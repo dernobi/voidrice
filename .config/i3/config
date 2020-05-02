@@ -81,8 +81,8 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
 
-bindsym $mod+y			exec $term -e calcurse
-bindsym $mod+Shift+y		exec --no-startup-id i3resize left
+bindsym $mod+z			exec $term -e calcurse
+bindsym $mod+Shift+z		exec --no-startup-id i3resize left
 
 bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
 bindsym $mod+Shift+u		exec --no-startup-id i3resize down
@@ -131,8 +131,8 @@ bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
 bindsym $mod+Ctrl+l		move workspace to output right
 
-bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z		gaps outer current minus 5
+bindsym $mod+y			gaps outer current plus 5
+bindsym $mod+Shift+y		gaps outer current minus 5
 
 bindsym $mod+x			exec --no-startup-id xset dpms force off && mpc pause && pauseallmpv && slock &
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
@@ -301,20 +301,20 @@ bindsym XF86ScreenSaver		exec exec --no-startup-id lockscreen
 ##bindsym XF86RotateWindows	exec
 ##bindsym XF86TaskPane		exec
 ##bindsym XF86Favorites		exec
-bindsym XF86MyComputer		exec $term -e lf
+#bindsym XF86MyComputer		exec $term -e lf
 ##bindsym XF86Back		exec
 ##bindsym XF86Forward		exec
-bindsym XF86Eject		exec --no-startup-id dmenuumount
-bindsym XF86AudioNext		exec --no-startup-id mpc next
-bindsym XF86AudioPlay		exec --no-startup-id mpc toggle
-bindsym XF86AudioPrev		exec --no-startup-id mpc prev
-bindsym XF86AudioStop		exec --no-startup-id mpc toggle
+##bindsym XF86Eject		exec --no-startup-id dmenuumount
+bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 ##bindsym XF86AudioRecord
-bindsym XF86AudioRewind		exec --no-startup-id mpc seek -10
-bindsym XF86AudioForward	exec --no-startup-id mpc seek +10
+##bindsym XF86AudioRewind		exec --no-startup-id mpc seek -10
+##bindsym XF86AudioForward	exec --no-startup-id mpc seek +10
 ##bindsym XF86Phone		exec
 ##bindsym XF86Tools		exec
-bindsym XF86HomePage		exec $BROWSER https://lukesmith.xyz
+#bindsym XF86HomePage		exec $BROWSER https://lukesmith.xyz
 bindsym XF86Reload		restart
 ##bindsym XF86ScrollUp		exec
 ##bindsym XF86ScrollDown		exec
@@ -329,7 +329,7 @@ bindsym XF86Reload		restart
 ##bindsym XF86Launch7		exec
 ##bindsym XF86Launch8		exec
 ##bindsym XF86Launch9		exec
-#bindsym XF86AudioMicMute	exec $micmute
+bindsym XF86AudioMicMute	exec $micmute
 bindsym XF86TouchpadToggle	exec --no-startup-id toggletouchpad
 bindsym XF86TouchpadOn		exec --no-startup-id synclient TouchpadOff=0
 bindsym XF86TouchpadOff		exec --no-startup-id synclient TouchpadOff=1
